@@ -40,14 +40,19 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rock" translatesAutoresizingMaskIntoConstraints="NO" id="a9K-jZ-B8Y">
                                                 <rect key="frame" x="0.0" y="0.0" width="121.5" height="286"/>
+                                                <gestureRecognizers/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paper" translatesAutoresizingMaskIntoConstraints="NO" id="qy6-Mc-myh">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paper" translatesAutoresizingMaskIntoConstraints="NO" id="qy6-Mc-myh">
                                                 <rect key="frame" x="131.5" y="0.0" width="121" height="286"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scissors" translatesAutoresizingMaskIntoConstraints="NO" id="eBi-hb-GrI">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scissors" translatesAutoresizingMaskIntoConstraints="NO" id="eBi-hb-GrI">
                                                 <rect key="frame" x="262.5" y="0.0" width="121.5" height="286"/>
                                             </imageView>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Sxz-Y9-Omy" appends="YES" id="DZ2-nm-CX3"/>
+                                        </connections>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L13-33-Ao8">
                                         <rect key="frame" x="0.0" y="386" width="384" height="50"/>
@@ -82,7 +87,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aSs-Um-SGO">
                                         <rect key="frame" x="0.0" y="472" width="384" height="227"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Select" translatesAutoresizingMaskIntoConstraints="NO" id="7pb-yO-E3D">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Select" translatesAutoresizingMaskIntoConstraints="NO" id="7pb-yO-E3D" userLabel="Your Selection">
                                                 <rect key="frame" x="0.0" y="0.0" width="121.5" height="227"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsd-I2-XNj">
@@ -160,8 +165,25 @@
                     <navigationItem key="navigationItem" id="ZqG-rP-lbM">
                         <barButtonItem key="rightBarButtonItem" title="Game Rules" id="LY4-Sz-B2E"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cpuScoreLabel" destination="KYy-a2-at7" id="V9l-qH-HVr"/>
+                        <outlet property="cpuSelection" destination="eW3-if-AhD" id="7Op-aO-ANb"/>
+                        <outlet property="gameMovesView" destination="tzo-Ub-XId" id="x4b-13-j4B"/>
+                        <outlet property="singleTapped" destination="Sxz-Y9-Omy" id="QCv-Bl-EbV"/>
+                        <outlet property="tieScoreLabel" destination="Lv2-GO-KGX" id="Gpp-nt-fWm"/>
+                        <outlet property="youSelected" destination="7pb-yO-E3D" id="q7v-yC-CXn"/>
+                        <outlet property="yourScoreLabel" destination="Wkh-DJ-Sqy" id="2ew-lr-pWl"/>
+                        <outletCollection property="imagesView" destination="a9K-jZ-B8Y" collectionClass="NSMutableArray" id="SnP-KJ-NUq"/>
+                        <outletCollection property="imagesView" destination="qy6-Mc-myh" collectionClass="NSMutableArray" id="Db8-N4-HbU"/>
+                        <outletCollection property="imagesView" destination="eBi-hb-GrI" collectionClass="NSMutableArray" id="7cK-Gy-6LC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Sxz-Y9-Omy">
+                    <connections>
+                        <action selector="tappedImages:" destination="BYZ-38-t0r" id="IyD-a3-mnv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="55.580357142857139"/>
         </scene>
