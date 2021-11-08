@@ -163,7 +163,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZqG-rP-lbM">
-                        <barButtonItem key="rightBarButtonItem" title="Game Rules" id="LY4-Sz-B2E"/>
+                        <barButtonItem key="rightBarButtonItem" title="Game Rules" id="LY4-Sz-B2E">
+                            <connections>
+                                <action selector="urlButton:" destination="BYZ-38-t0r" id="yNM-41-LWD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cpuScoreLabel" destination="KYy-a2-at7" id="V9l-qH-HVr"/>

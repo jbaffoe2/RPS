@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class ViewController: UIViewController
+class ViewController: UIViewController, SFSafariViewControllerDelegate
 {
 
     //Declare Global Outlets and Variables
@@ -126,6 +127,7 @@ class ViewController: UIViewController
     
     func displayEndGame(message: String)
     {
+        //Declare Alert
         let alert = UIAlertController(title: "Good Game!", message: message, preferredStyle: .alert)
         
         //OKs alert
@@ -143,6 +145,15 @@ class ViewController: UIViewController
         self.present(alert, animated: true, completion: nil)
     }
     
+    //MARK: Stretch #1
+    //Function for Rules URL
+    @IBAction func urlButton(_ sender: UIBarButtonItem)
+    {
+        let myURL = URL(string: "https://en.wikipedia.org/wiki/Rock_paper_scissors")
+        let svc = SFSafariViewController(url: myURL!)
+        svc.delegate = self
+        self.present(svc, animated: true, completion: nil)
+    }
     
 }
 
